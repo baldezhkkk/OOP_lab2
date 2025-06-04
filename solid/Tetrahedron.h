@@ -1,0 +1,31 @@
+#pragma once
+#include "SolidShape.h"
+#include "FlatShape.h"
+
+class Tetrahedron : public SolidShape {
+    double side;
+
+public:
+    Tetrahedron(double s);
+
+    std::string getName() const override;
+    int getVertexCount() const override;
+    int getEdgeCount() const override;
+    double getSideLength() const override;
+    void setSideLength(double length) override;
+
+    double getSurfaceArea() const override;
+    double getVolume() const override;
+    int getFaceCount() const override;
+    int getEdgesPerFace() const override;
+    int getFacesAtVertex() const override;
+
+    double getInradius() const override;
+    double getCircumradius() const override;
+    void setInradius(double r) override;
+    void setCircumradius(double r) override;
+
+    std::shared_ptr<FlatShape> getFaceShape() const override;
+
+    void printInfo() const override;
+};
